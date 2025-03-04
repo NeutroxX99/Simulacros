@@ -3,7 +3,7 @@ import { quizCategories } from "./data/quizCategories";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
-// Clonar y mezclar sin perder datos
+// Mezcla los elementos sin perder la propiedad correct
 const shuffleArray = (array) => {
   return [...array].map(item => ({ ...item })).sort(() => Math.random() - 0.5);
 };
@@ -46,22 +46,27 @@ const Quiz = () => {
     setAnswered(false);
     setSelectedOption(null);
 
-    // Clonar opciones y mezclarlas para evitar perder isCorrect
+    // Mezclar opciones sin perder correct
     const shuffledOptions = shuffleArray([...finalQuestions[0].options]);
+    console.log("Opciones al iniciar:", shuffledOptions);
     setShuffledOptions(shuffledOptions);
   };
 
   const handleAnswerClick = (option) => {
     if (answered) return;
 
+    console.log("Opción seleccionada:", option);
     setSelectedOption(option);
     setAnswered(true);
     setShowNext(true);
 
-    if (option.isCorrect === true) {
+    // Usar 'correct' en lugar de 'isCorrect'
+    if (option.correct) {
+      console.log("¡Respuesta correcta!");
       setScore((prevScore) => prevScore + 1);
       setFeedback("¡Correcto! 🎉");
     } else {
+      console.log("Respuesta incorrecta.");
       setFeedback("Incorrecto ❌");
     }
   };
@@ -71,8 +76,8 @@ const Quiz = () => {
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
 
-      // Mezclar opciones sin perder la propiedad isCorrect
       const shuffledOptions = shuffleArray([...questions[nextQuestion].options]);
+      console.log("Opciones nueva pregunta:", shuffledOptions);
       setShuffledOptions(shuffledOptions);
 
       setAnswered(false);
@@ -111,7 +116,7 @@ const Quiz = () => {
                 onClick={() => handleAnswerClick(option)}
                 className={`block w-full p-2 rounded cursor-pointer 
                   ${selectedOption === option 
-                    ? option.isCorrect 
+                    ? option.correct 
                       ? "bg-green-400 text-white" 
                       : "bg-red-400 text-white" 
                     : "bg-gray-100 hover:bg-gray-300"}`}

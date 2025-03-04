@@ -16,7 +16,7 @@ const Quiz = () => {
   const [nota, setNota] = useState(0);
   const [answered, setAnswered] = useState(false);
   const [feedback, setFeedback] = useState(null);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(null); // 📌 Estado para la opción seleccionada
 
   useEffect(() => {
     if (questions.length > 0) {
@@ -41,6 +41,36 @@ const Quiz = () => {
     setShowNext(false);
     setShuffledOptions(shuffleArray([...finalQuestions[0].options]));
     setAnswered(false);
+    setSelectedOption(null);
+  };
+
+  const handleAnswerClick = (option) => {
+    if (answered) return; // Evita seleccionar más de una vez
+
+    setSelectedOption(option); // Guarda la opción seleccionada
+    setAnswered(true);
+    setShowNext(true);
+
+    if (option.isCorrect) {
+      setScore((prevScore) => prevScore + 1);
+      setFeedback("¡Correcto! 🎉");
+    } else {
+      setFeedback("Incorrecto ❌");
+    }
+  };
+
+  const handleNextQuestion = () => {
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      setCurrentQuestion(nextQuestion);
+      setShuffledOptions(shuffleArray([...questions[nextQuestion].options]));
+      setAnswered(false);
+      setSelectedOption(null);
+      setFeedback(null);
+      setShowNext(false);
+    } else {
+      setShowScore(true);
+    }
   };
 
   return (
@@ -67,15 +97,24 @@ const Quiz = () => {
               <button
                 key={index}
                 disabled={answered}
-                onClick={() => setAnswered(true)}
-                className="block w-full bg-gray-100 hover:bg-gray-300 p-2 rounded cursor-pointer"
+                onClick={() => handleAnswerClick(option)}
+                className={`block w-full p-2 rounded cursor-pointer 
+                  ${selectedOption === option 
+                    ? option.isCorrect 
+                      ? "bg-green-400 text-white" 
+                      : "bg-red-400 text-white" 
+                    : "bg-gray-100 hover:bg-gray-300"}`}
               >
                 {option.text}
               </button>
             ))}
           </div>
+          {feedback && <p className="mt-2 font-semibold">{feedback}</p>}
           {showNext && (
-            <button className="mt-4 bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-700 cursor-pointer">
+            <button 
+              className="mt-4 bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-700 cursor-pointer"
+              onClick={handleNextQuestion}
+            >
               Siguiente
             </button>
           )}

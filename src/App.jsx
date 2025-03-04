@@ -3,7 +3,7 @@ import { quizCategories } from "./data/quizCategories";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
-const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
+const shuffleArray = (array) => [...array].sort(() => Math.random() - 0.5); // Clonar antes de mezclar
 
 const Quiz = () => {
   const [category, setCategory] = useState(null);
@@ -16,7 +16,7 @@ const Quiz = () => {
   const [nota, setNota] = useState(0);
   const [answered, setAnswered] = useState(false);
   const [feedback, setFeedback] = useState(null);
-  const [selectedOption, setSelectedOption] = useState(null); // 📌 Estado para la opción seleccionada
+  const [selectedOption, setSelectedOption] = useState(null);
 
   useEffect(() => {
     if (questions.length > 0) {
@@ -29,7 +29,8 @@ const Quiz = () => {
   const startQuiz = () => {
     const selectedCategory = "cuestionarios";
     const allQuestions = quizCategories[selectedCategory];
-    const shuffledAll = shuffleArray([...allQuestions]);
+
+    const shuffledAll = shuffleArray(allQuestions);
     const finalQuestions = shuffledAll.slice(0, 40);
 
     setCategory(selectedCategory);
@@ -39,15 +40,18 @@ const Quiz = () => {
     setShowScore(false);
     setFeedback(null);
     setShowNext(false);
-    setShuffledOptions(shuffleArray([...finalQuestions[0].options]));
+    
+    // Clonar opciones y mezclarlas
+    setShuffledOptions(shuffleArray([...finalQuestions[0].options.map(opt => ({ ...opt }))]));
+
     setAnswered(false);
     setSelectedOption(null);
   };
 
   const handleAnswerClick = (option) => {
-    if (answered) return; // Evita seleccionar más de una vez
+    if (answered) return;
 
-    setSelectedOption(option); // Guarda la opción seleccionada
+    setSelectedOption(option);
     setAnswered(true);
     setShowNext(true);
 
@@ -63,7 +67,10 @@ const Quiz = () => {
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
-      setShuffledOptions(shuffleArray([...questions[nextQuestion].options]));
+
+      // Clonar y mezclar opciones de la nueva pregunta
+      setShuffledOptions(shuffleArray([...questions[nextQuestion].options.map(opt => ({ ...opt }))]));
+
       setAnswered(false);
       setSelectedOption(null);
       setFeedback(null);

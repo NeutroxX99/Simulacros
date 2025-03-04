@@ -48,7 +48,7 @@ const Quiz = () => {
 
     // Mezclar opciones sin perder correct
     const shuffledOptions = shuffleArray([...finalQuestions[0].options]);
-    console.log("Opciones al iniciar:", shuffledOptions);
+    console.log("Opciones al iniciar:", shuffledOptions); // Añadir depuración
     setShuffledOptions(shuffledOptions);
   };
 
@@ -61,6 +61,7 @@ const Quiz = () => {
     setShowNext(true);
 
     // Usar 'correct' en lugar de 'isCorrect'
+    console.log("¿Es correcta la respuesta?", option.correct); // Añadir depuración
     if (option.correct) {
       console.log("¡Respuesta correcta!");
       setScore((prevScore) => prevScore + 1);
@@ -77,7 +78,7 @@ const Quiz = () => {
       setCurrentQuestion(nextQuestion);
 
       const shuffledOptions = shuffleArray([...questions[nextQuestion].options]);
-      console.log("Opciones nueva pregunta:", shuffledOptions);
+      console.log("Opciones nueva pregunta:", shuffledOptions); // Añadir depuración
       setShuffledOptions(shuffledOptions);
 
       setAnswered(false);

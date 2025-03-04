@@ -3,7 +3,10 @@ import { quizCategories } from "./data/quizCategories";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
-const shuffleArray = (array) => [...array].sort(() => Math.random() - 0.5); // Clonar antes de mezclar
+// Clonar y mezclar sin perder datos
+const shuffleArray = (array) => {
+  return [...array].map(item => ({ ...item })).sort(() => Math.random() - 0.5);
+};
 
 const Quiz = () => {
   const [category, setCategory] = useState(null);
@@ -40,12 +43,12 @@ const Quiz = () => {
     setShowScore(false);
     setFeedback(null);
     setShowNext(false);
-    
-    // Clonar opciones y mezclarlas
-    setShuffledOptions(shuffleArray([...finalQuestions[0].options.map(opt => ({ ...opt }))]));
-
     setAnswered(false);
     setSelectedOption(null);
+
+    // Clonar opciones y mezclarlas para evitar perder isCorrect
+    const shuffledOptions = shuffleArray([...finalQuestions[0].options]);
+    setShuffledOptions(shuffledOptions);
   };
 
   const handleAnswerClick = (option) => {
@@ -55,7 +58,7 @@ const Quiz = () => {
     setAnswered(true);
     setShowNext(true);
 
-    if (option.isCorrect) {
+    if (option.isCorrect === true) {
       setScore((prevScore) => prevScore + 1);
       setFeedback("¡Correcto! 🎉");
     } else {
@@ -68,8 +71,9 @@ const Quiz = () => {
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
 
-      // Clonar y mezclar opciones de la nueva pregunta
-      setShuffledOptions(shuffleArray([...questions[nextQuestion].options.map(opt => ({ ...opt }))]));
+      // Mezclar opciones sin perder la propiedad isCorrect
+      const shuffledOptions = shuffleArray([...questions[nextQuestion].options]);
+      setShuffledOptions(shuffledOptions);
 
       setAnswered(false);
       setSelectedOption(null);

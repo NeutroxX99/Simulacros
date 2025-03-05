@@ -3,7 +3,6 @@ import { quizCategories } from "./data/quizCategories";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 
-// Mezcla los elementos sin perder la propiedad correct
 const shuffleArray = (array) => {
   return [...array].map(item => ({ ...item })).sort(() => Math.random() - 0.5);
 };
@@ -20,6 +19,7 @@ const Quiz = () => {
   const [answered, setAnswered] = useState(false);
   const [feedback, setFeedback] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [correctOption, setCorrectOption] = useState(null);
 
   useEffect(() => {
     if (questions.length > 0) {
@@ -45,29 +45,26 @@ const Quiz = () => {
     setShowNext(false);
     setAnswered(false);
     setSelectedOption(null);
+    setCorrectOption(null);
 
-    // Mezclar opciones sin perder correct
     const shuffledOptions = shuffleArray([...finalQuestions[0].options]);
-    console.log("Opciones al iniciar:", shuffledOptions); // Añadir depuración
     setShuffledOptions(shuffledOptions);
   };
 
   const handleAnswerClick = (option) => {
     if (answered) return;
 
-    console.log("Opción seleccionada:", option);
     setSelectedOption(option);
     setAnswered(true);
     setShowNext(true);
 
-    // Usar 'correct' en lugar de 'isCorrect'
-    console.log("¿Es correcta la respuesta?", option.correct); // Añadir depuración
+    const correctAnswer = shuffledOptions.find(opt => opt.correct);
+    setCorrectOption(correctAnswer);
+
     if (option.correct) {
-      console.log("¡Respuesta correcta!");
       setScore((prevScore) => prevScore + 1);
       setFeedback("¡Correcto! 🎉");
     } else {
-      console.log("Respuesta incorrecta.");
       setFeedback("Incorrecto ❌");
     }
   };
@@ -78,11 +75,11 @@ const Quiz = () => {
       setCurrentQuestion(nextQuestion);
 
       const shuffledOptions = shuffleArray([...questions[nextQuestion].options]);
-      console.log("Opciones nueva pregunta:", shuffledOptions); // Añadir depuración
       setShuffledOptions(shuffledOptions);
 
       setAnswered(false);
       setSelectedOption(null);
+      setCorrectOption(null);
       setFeedback(null);
       setShowNext(false);
     } else {
@@ -120,7 +117,9 @@ const Quiz = () => {
                     ? option.correct 
                       ? "bg-green-400 text-white" 
                       : "bg-red-400 text-white" 
-                    : "bg-gray-100 hover:bg-gray-300"}`}
+                    : correctOption === option 
+                      ? "bg-green-400 text-white" 
+                      : "bg-gray-100 hover:bg-gray-300"}`}
               >
                 {option.text}
               </button>

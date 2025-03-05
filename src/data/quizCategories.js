@@ -1,5 +1,6 @@
 export const quizCategories = {
   cuestionarios: [
+
     {
       question: '¿Qué significa DS9?',
       options: [
@@ -279,6 +280,368 @@ export const quizCategories = {
         { text: "No permitir que el carburante se derrame", correct: false },
         { text: "Cerrar la llave de paso del combustible", correct: true },
         { text: "Revisar las conexiones del circuito", correct: false },
+        {
+          question: 'En la señalización de mando para guías desde tierra con visibilidad, el mayor o menor valor de ángulo que forma el brazo inmóvil indica:',
+          options: [
+            { text: "Mayor o menor amplitud del giro del vehículo", correct: true },
+            { text: "Mayor o menor velocidad del vehículo", correct: false },
+            { text: "Parada del vehículo", correct: false },
+            { text: "Marchar despacio", correct: false },
+          ],
+        },
+        {
+          question: 'Movimientos de antebrazo hacia el frente indica:',
+          options: [
+            { text: "Rápido", correct: false },
+            { text: "Despacio", correct: true },
+            { text: "Atrás", correct: false },
+            { text: "Adelante", correct: false },
+          ],
+        },
+        {
+          question: '¿Qué indica las manos entrelazadas a la altura de la cara?',
+          options: [
+            { text: "Adelante", correct: false },
+            { text: "Parar motores", correct: false },
+            { text: "Alto", correct: true },
+            { text: "Queda menos para el alto", correct: false },
+          ],
+        },
+        {
+          question: 'Movimientos de manos desde el cuerpo hacia fuera indica:',
+          options: [
+            { text: "Atrás", correct: true },
+            { text: "Delante", correct: false },
+            { text: "Derecha", correct: false },
+            { text: "Despacio", correct: false },
+          ],
+        },
+        {
+          question: 'Pendiente longitudinal máxima:',
+          options: [
+            { text: "30%", correct: false },
+            { text: "90%", correct: false },
+            { text: "45%", correct: false },
+            { text: "60%", correct: true },
+          ],
+        },
+        {
+          question: 'Pendiente máxima transversal:',
+          options: [
+            { text: "30%", correct: true },
+            { text: "60%", correct: false },
+            { text: "45%", correct: false },
+            { text: "1.2%", correct: false },
+          ],
+        },
+        {
+          question: 'Muro vertical:',
+          options: [
+            { text: "60%", correct: false },
+            { text: "60cm", correct: true },
+            { text: "30%", correct: false },
+            { text: "30cm", correct: false },
+          ],
+        },
+        {
+          question: 'Zanja máxima:',
+          options: [
+            { text: "60 cm", correct: false },
+            { text: "3,5 m", correct: false },
+            { text: "1,2 m", correct: true },
+            { text: "1,5 m", correct: false },
+          ],
+        },
+        {
+          question: 'Consumo en carretera:',
+          options: [
+            { text: "35 L /100Km", correct: false },
+            { text: "0,5 L /Km", correct: false },
+            { text: "36 L/ 100 Km", correct: true },
+            { text: "26 L/ 100Km", correct: false },
+          ],
+        },
+        {
+          question: 'Consumo todoterreno:',
+          options: [
+            { text: "45L /100Km", correct: false },
+            { text: "0,5L /Km", correct: false },
+            { text: "42L / 100Km", correct: true },
+            { text: "36L /100Km", correct: false },
+          ],
+        },
+        {
+          question: 'Capacidad del depósito de combustible principal:',
+          options: [
+            { text: "192L", correct: false },
+            { text: "131L", correct: false },
+            { text: "275 L", correct: true },
+            { text: "147L", correct: false },
+          ],
+        },
+        {
+          question: 'Capacidad del depósito de combustible auxiliar:',
+          options: [
+            { text: "191 L", correct: false },
+            { text: "135 L", correct: false },
+            { text: "110 L", correct: true },
+            { text: "193 L", correct: false },
+          ],
+        },
+        {
+          question: 'Capacidad del puente central:',
+          options: [
+            { text: "9 L", correct: false },
+            { text: "9.5 L", correct: false },
+            { text: "13 L", correct: true },
+            { text: "15 L", correct: false },
+          ],
+        },
+        {
+          question: 'Número de válvulas por cilindro:',
+          options: [
+            { text: "1", correct: false },
+            { text: "2", correct: true },
+            { text: "3", correct: false },
+            { text: "5", correct: false },
+          ],
+        },
+        {
+          question: 'Número de cilindros:',
+          options: [
+            { text: "8 en línea", correct: false },
+            { text: "4 en línea", correct: false },
+            { text: "6 en línea", correct: true },
+            { text: "10 en línea", correct: false },
+          ],
+        },
+        {
+          question: 'Potencia máxima:',
+          options: [
+            { text: "320cv", correct: false },
+            { text: "315cv", correct: false },
+            { text: "330cv", correct: false },
+            { text: "310cv", correct: true },
+          ],
+        },
+        {
+          question: 'Refrigeración:',
+          options: [
+            { text: "Por aire, circuito cerrado y presurizado", correct: false },
+            { text: "Por líquido, circuito abierto y presurizado", correct: false },
+            { text: "Por líquido, circuito cerrado y presurizado", correct: true },
+            { text: "Por aire, circuito abierto y presurizado", correct: false },
+          ],
+        },
+        {
+          question: 'Longitud total del vehículo:',
+          options: [
+            { text: "6.150 Cm", correct: true },
+            { text: "6.250 Cm", correct: false },
+            { text: "6.150 Mm", correct: false },
+            { text: "6.250 Mm", correct: false },
+          ],
+        },
+        {
+          question: 'Altura del vehículo:',
+          options: [
+            { text: "2,5m", correct: false },
+            { text: "2m", correct: true },
+            { text: "2.35m", correct: false },
+            { text: "1.90m", correct: false },
+          ],
+        },
+        {
+          question: '¿Dónde se encuentra ubicada la barra remolque?',
+          options: [
+            { text: "Costado izquierdo", correct: true },
+            { text: "Costado derecho", correct: false },
+            { text: "Parte frontal", correct: false },
+            { text: "Ninguna de las anteriores", correct: false },
+          ],
+        },
+        {
+          question: '¿Y la tapa de acceso al Sistema N.B.Q.?',
+          options: [
+            { text: "Costado izquierdo", correct: false },
+            { text: "Costado derecho", correct: true },
+            { text: "Parte trasera", correct: false },
+            { text: "Ninguna de las anteriores", correct: false },
+          ],
+        },
+        {
+          question: '¿Y la sirga de remolque?',
+          options: [
+            { text: "Costado derecho", correct: false },
+            { text: "Costado izquierdo", correct: true },
+            { text: "Parte frontal", correct: false },
+            { text: "Ninguna de las anteriores", correct: false },
+            {
+              question: '¿Qué significa DS9?',
+              options: [
+                { text: "Diesel sobrealimentado de 9 dm3", correct: true },
+                { text: "Diesel supercompensado de 9 cilindros", correct: false },
+                { text: "Diesel sobrealimentado de 9000 dm3", correct: false },
+              ],
+            },
+            {
+              question: 'En orden de combate el peso del vehículo es:',
+              options: [
+                { text: "14170 kg", correct: false },
+                { text: "15400 kg", correct: true },
+                { text: "11900 kg", correct: false },
+              ],
+            },
+            {
+              question: '¿Cuál es la capacidad máxima de la caja de cambios?',
+              options: [
+                { text: "250L", correct: false },
+                { text: "500L", correct: false },
+                { text: "300L", correct: true },
+              ],
+            },
+            {
+              question: '¿Cómo se llama el sistema que controla la temperatura del motor?',
+              options: [
+                { text: "Sistema de enfriamiento", correct: true },
+                { text: "Sistema de climatización", correct: false },
+                { text: "Sistema de refrigeración", correct: false },
+              ],
+            },
+            {
+              question: '¿Qué tipo de motor tiene el vehículo?',
+              options: [
+                { text: "Motor V8", correct: false },
+                { text: "Motor en línea", correct: true },
+                { text: "Motor en V", correct: false },
+              ],
+            },
+            {
+              question: '¿Cuál es la capacidad de carga máxima?',
+              options: [
+                { text: "3.5 toneladas", correct: false },
+                { text: "5 toneladas", correct: true },
+                { text: "10 toneladas", correct: false },
+              ],
+            },
+            {
+              question: '¿Qué tipo de combustible usa el vehículo?',
+              options: [
+                { text: "Gasolina", correct: false },
+                { text: "Diesel", correct: true },
+                { text: "Eléctrico", correct: false },
+              ],
+            },
+            {
+              question: '¿Cuántos ejes tiene el vehículo?',
+              options: [
+                { text: "2 ejes", correct: false },
+                { text: "4 ejes", correct: true },
+                { text: "6 ejes", correct: false },
+              ],
+            },
+            {
+              question: '¿Cuál es el diámetro de las ruedas?',
+              options: [
+                { text: "24 pulgadas", correct: true },
+                { text: "20 pulgadas", correct: false },
+                { text: "26 pulgadas", correct: false },
+              ],
+            },
+            {
+              question: '¿Cuál es el tipo de suspensión del vehículo?',
+              options: [
+                { text: "Suspensión independiente", correct: false },
+                { text: "Suspensión dependiente", correct: true },
+                { text: "Suspensión neumática", correct: false },
+              ],
+            },
+            {
+              question: '¿Qué tipo de dirección tiene el vehículo?',
+              options: [
+                { text: "Dirección asistida", correct: true },
+                { text: "Dirección mecánica", correct: false },
+                { text: "Dirección hidráulica", correct: false },
+              ],
+            },
+            {
+              question: '¿Qué tipo de frenos tiene el vehículo?',
+              options: [
+                { text: "Frenos de disco", correct: true },
+                { text: "Frenos de tambor", correct: false },
+                { text: "Frenos de tambor y disco", correct: false },
+              ],
+            },
+            {
+              question: '¿En qué lugar se encuentra el motor?',
+              options: [
+                { text: "En la parte trasera", correct: false },
+                { text: "En la parte delantera", correct: true },
+                { text: "En el medio del vehículo", correct: false },
+              ],
+            },
+            {
+              question: '¿Qué tipo de neumáticos tiene el vehículo?',
+              options: [
+                { text: "Neumáticos de carretera", correct: false },
+                { text: "Neumáticos todoterreno", correct: true },
+                { text: "Neumáticos de competición", correct: false },
+              ],
+            },
+            {
+              question: '¿Cuántos cilindros tiene el motor?',
+              options: [
+                { text: "8 cilindros", correct: false },
+                { text: "6 cilindros", correct: true },
+                { text: "4 cilindros", correct: false },
+              ],
+            },
+            {
+              question: '¿Qué tipo de combustible utiliza el sistema de calefacción?',
+              options: [
+                { text: "Gas", correct: false },
+                { text: "Eléctrico", correct: false },
+                { text: "Diesel", correct: true },
+              ],
+            },
+            {
+              question: '¿Cuál es la capacidad máxima de la batería?',
+              options: [
+                { text: "120 Ah", correct: true },
+                { text: "100 Ah", correct: false },
+                { text: "150 Ah", correct: false },
+              ],
+            },
+            {
+              question: '¿Qué tipo de luces tiene el vehículo?',
+              options: [
+                { text: "Luces halógenas", correct: false },
+                { text: "Luces LED", correct: true },
+                { text: "Luces incandescentes", correct: false },
+              ],
+            },
+            {
+              question: '¿Qué tipo de transmisión tiene el vehículo?',
+              options: [
+                { text: "Manual", correct: false },
+                { text: "Automática", correct: true },
+                { text: "Semiautomática", correct: false },
+              ],
+            },
+            {
+              question: '¿Cuál es la capacidad del tanque de aceite?',
+              options: [
+                { text: "5L", correct: true },
+                { text: "3L", correct: false },
+                { text: "8L", correct: false },
+              ],
+            },
+            {
+              question: '¿Cuánto tiempo tarda el vehículo en alcanzar su velocidad máxima?',
+              options: [
+                { text: "15 segundos", correct: false },
+                { text: "10 segundos", correct: false },
+                { text: "12 segundos", correct: true },
       ],
     },
   ]

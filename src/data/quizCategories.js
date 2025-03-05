@@ -189,8 +189,8 @@ export const quizCategories = {
     {
       question: 'En el sistema supresor de explosiones, en posición combate el sistema se activa al recibir la señal de detección de:',
       options: [
-        { text: "Uno o más detectores ópticos", correct: false },
-        { text: "Dos o más detectores ópticos", correct: true },
+        { text: "Uno o más detectores ópticos", correct: true },
+        { text: "Dos o más detectores ópticos", correct: false },
         { text: "Ninguna de las anteriores es correcta", correct: false },
       ],
     },

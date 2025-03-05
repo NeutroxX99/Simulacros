@@ -274,12 +274,6 @@ export const quizCategories = {
         { text: "Repostar 20 l menos de la capacidad total", correct: true },
       ],
     },
-    {
-      question: '¿Qué precaución deberemos tomar antes de cambiar el filtro primario de combustible?',
-      options: [
-        { text: "No permitir que el carburante se derrame", correct: false },
-        { text: "Cerrar la llave de paso del combustible", correct: true },
-        { text: "Revisar las conexiones del circuito", correct: false },
         {
           question: 'En la señalización de mando para guías desde tierra con visibilidad, el mayor o menor valor de ángulo que forma el brazo inmóvil indica:',
           options: [
@@ -645,4 +639,6 @@ export const quizCategories = {
       ],
     },
   ]
+}
+]
 }

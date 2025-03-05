@@ -34,7 +34,7 @@ const Quiz = () => {
     const allQuestions = quizCategories[selectedCategory];
 
     const shuffledAll = shuffleArray(allQuestions);
-    const finalQuestions = shuffledAll.slice(0, 40);
+    const finalQuestions = shuffledAll;
 
     setCategory(selectedCategory);
     setQuestions(finalQuestions);
